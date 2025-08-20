@@ -113,3 +113,11 @@ def html_to_django_form(html_code, form_name="GeneratedForm"):
         output += "    pass\n"
 
     return output
+
+
+
+if '__main__' == __name__:
+    str = '''<label for="username">Enter username </label>
+    <input type="text" name="username" id="username">
+    '''
+    print(html_to_django_form(str))
