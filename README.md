@@ -7,7 +7,7 @@ This repo contains code for Django forms generator that gives out django form cl
 str = '''<label for="username">Enter username </label>
 <input type="text" name="username" id="username">
 '''
-html_to_django_forms(str)
+html_to_django_form(str)
 ```
 
 ## Output
