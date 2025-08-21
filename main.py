@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+import re
 
 def html_to_django_form(html_code, form_name="GeneratedForm"):
     soup = BeautifulSoup(html_code, "html.parser")
@@ -14,9 +15,9 @@ def html_to_django_form(html_code, form_name="GeneratedForm"):
 
     for tag in soup.find_all(["input", "textarea", "select"]):
         field_name = tag.get("name")
-        if field_name:
-            # Replace '-' with '_' to make a valid Python identifier
+        if field_name:            
             field_name = field_name.replace("-", "_")
+            field_name = re.sub(r'\W|^(?=\d)', '_', field_name)
         if not field_name:
             continue  
 
